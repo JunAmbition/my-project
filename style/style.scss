@@ -1,0 +1,419 @@
+/* Google Font Import */
+@import 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: Poppins, sans-serif;
+  transition: all 0.4s ease;
+}
+
+// 네비게이션바
+.sectionnav {
+  height: 9vh;
+
+  // background-color: var(--body-color);
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 70px;
+  background-color: var(--nav-color);
+}
+
+.navcontainer.dark nav {
+  border: 1px solid #393838;
+}
+
+.nav-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1000px;
+  height: 100%;
+  padding: 0 30px;
+  margin: 0 auto;
+  background-color: var(--nav-color);
+
+  .sidebaropen {
+    display: none;
+    padding: 5px;
+    font-size: 25px;
+    color: var(--text-color);
+    cursor: pointer;
+  }
+
+  .logo a {
+    font-size: 25px;
+    font-weight: 100;
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
+  .navlogo img {
+    display: block;
+    width: 80px;
+    height: auto;
+    border-radius: 1.25rem;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+
+    li {
+      position: relative;
+      margin: 0 5px;
+      list-style: none;
+
+      a {
+        position: relative;
+        padding: 10px;
+        font-size: 17px;
+        font-weight: 400;
+        color: var(--text-color);
+        text-decoration: none;
+        transition: color 0.3s ease, background-color 0.3s ease;
+
+        &:hover {
+          color: var(--hover-text-color);
+          background-color: var(--hover-bg-color);
+        }
+
+        &::before {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 6px;
+          height: 6px;
+          content: '';
+          background-color: var(--text-color);
+          border-radius: 50%;
+          opacity: 0;
+          transition: all 0.3s ease;
+          transform: translateX(-50%);
+        }
+
+        &:hover::before {
+          opacity: 1;
+        }
+      }
+
+      .dropdown {
+        position: absolute;
+        top: 190%;
+        left: 0;
+        z-index: 99;
+        display: none;
+        overflow: hidden;
+        background-color: #393838;
+        border-radius: 4px;
+        box-shadow: 0 5px 10px rgb(0 0 0 / 10%);
+
+        li {
+          width: 200px;
+
+          a {
+            display: block;
+            padding: 10px 15px;
+            color: var(--text-color);
+
+            &:hover {
+              color: var(--hover-text-color);
+              background-color: var(--hover-bg-color);
+            }
+          }
+        }
+      }
+
+      &:hover .dropdown {
+        display: block;
+      }
+    }
+  }
+}
+
+.darklight-searchbox {
+  display: flex;
+  align-items: center;
+
+  .dark-light,
+  .searchtoggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+  }
+
+  .searchtoggle i {
+    position: absolute;
+    font-size: 22px;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &.cancel {
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    &.active.cancel {
+      pointer-events: auto;
+      opacity: 1;
+    }
+
+    &.active.search {
+      pointer-events: none;
+      opacity: 0;
+    }
+  }
+
+  .searchbox {
+    position: relative;
+
+    .search-field {
+      position: absolute;
+      right: 5px;
+      bottom: -85px;
+      display: flex;
+      align-items: center;
+      width: 300px;
+      height: 50px;
+      padding: 3px;
+      pointer-events: none;
+      background-color: #fff;
+      border-radius: 6px;
+      box-shadow: 0 5px 5px rgb(0 0 0 / 10%);
+      opacity: 0;
+      transition: all 0.3s ease;
+
+      &::before {
+        position: absolute;
+        top: -4px;
+        right: 14px;
+        z-index: -1;
+        width: 12px;
+        height: 12px;
+        content: '';
+        background-color: var(--nav-color);
+        transform: rotate(-45deg);
+      }
+
+      input {
+        width: 100%;
+        height: 100%;
+        padding: 0 45px 0 15px;
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--search-text);
+        background-color: var(--search-bar);
+        border: none;
+        border-radius: 4px;
+        outline: none;
+      }
+
+      i {
+        position: absolute;
+        right: 15px;
+        font-size: 22px;
+        color: var(--nav-color);
+        cursor: pointer;
+      }
+    }
+
+    .searchtoggle.active ~ .search-field {
+      bottom: -74px;
+      pointer-events: auto;
+      opacity: 1;
+    }
+  }
+}
+
+@media (width <= 790px) {
+  .nav-bar .sidebaropen {
+    display: block;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    z-index: 100;
+    width: 320px;
+    height: 100%;
+    padding: 20px;
+    color: #fff; /* 흰색 글자 */
+    background-color: #000; /* 검은색 배경 */
+    transition: all 0.4s ease;
+
+    a {
+      color: #fff;
+    }
+
+    .nav-links {
+      flex-direction: column;
+      padding-top: 30px;
+
+      li {
+        width: 100%;
+
+        a {
+          display: block;
+          margin-top: 20px;
+        }
+
+        .dropdown {
+          position: static;
+
+          li {
+            width: 100%;
+
+            a {
+              padding: 10px 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  nav.active .menu {
+    left: 0;
+  }
+
+  nav.active .nav-bar .navlogo a {
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .searchtoggle,
+  .search-field i {
+    font-size: 18px;
+  }
+}
+
+// 여기까지 네비게이션 바
+
+.home {
+  position: relative;
+  width: 100%;
+  max-width: auto;
+  margin: 0 auto;
+  overflow: hidden; // 비율 유지하기 위해 추가
+
+  .content {
+    position: absolute;
+    bottom: 50px; // 하단 여백
+    left: 50px; // 왼쪽 여백
+    z-index: 2;
+    color: #fff;
+
+    h3 {
+      margin-bottom: 0.5rem;
+      font-size: 2rem;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+
+    .homebtn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      color: #fff;
+      text-decoration: none;
+      background-color: #000;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #444;
+      }
+    }
+  }
+
+  .img {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; // 16:9 비율 유지
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background: rgb(0 0 0 / 50%); // 이미지 위에 반투명 레이어 추가
+  }
+
+  // 반응형 디자인 추가
+  @media (width <= 1200px) {
+    .content {
+      h3 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 2.2rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  @media (width <= 600px) {
+    .content {
+      h3 {
+        font-size: 1.2rem;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      p {
+        font-size: 0.6rem;
+      }
+
+      .homebtn {
+        padding: 0.3rem 0.7rem;
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
