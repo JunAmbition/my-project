@@ -609,6 +609,47 @@ nav {
   }
 }
 
+// 쇼핑리스트
+
+.section-title {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.shop-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, auto));
+  gap: 2.25rem;
+}
+
+.product-box {
+  position: relative;
+}
+
+.product-box:hover {
+  padding: 0.625rem;
+  border: 1px solid var(--text-color);
+  transition: 0.4s;
+}
+
+.product-img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.product-title {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.price {
+  font-weight: 500;
+}
+
 // 푸터임
 .footer {
   justify-content: center;
