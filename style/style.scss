@@ -17,7 +17,7 @@ body {
 
 // 네비게이션바
 .sectionnav {
-  height: 9vh;
+  // height: 9vh;
 
   // background-color: var(--body-color);
 }
@@ -146,11 +146,10 @@ nav {
   }
 }
 
-.darklight-searchbox {
+.navside-searchbox {
   display: flex;
   align-items: center;
 
-  .dark-light,
   .searchtoggle {
     display: flex;
     align-items: center;
@@ -204,14 +203,16 @@ nav {
 
       &::before {
         position: absolute;
-        top: -4px;
-        right: 14px;
-        z-index: -1;
-        width: 12px;
-        height: 12px;
+        bottom: 0;
+        left: 50%;
+        width: 6px;
+        height: 6px;
         content: '';
-        background-color: var(--nav-color);
-        transform: rotate(-45deg);
+        background-color: var(--text-color);
+        border-radius: 50%;
+        opacity: 0;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
       }
 
       input {
@@ -299,6 +300,12 @@ nav {
   nav.active .nav-bar .navlogo a {
     opacity: 0;
     transition: all 0.3s ease;
+  }
+
+  .logo-toggle .siderbarclose {
+    font-size: 24px;
+    color: var(--text-color);
+    cursor: pointer;
   }
 
   .searchtoggle,
@@ -419,3 +426,175 @@ nav {
 }
 
 // 슬라이드임
+
+.text-center {
+  margin-inline: 8.75rem;
+}
+
+.containersl {
+  width: 90%;
+  margin: 0 auto;
+
+  .swiper {
+    &.tranding-slider {
+      position: relative;
+      width: 100%;
+
+      .swiper-wrapper {
+        display: flex;
+      }
+
+      .swiper-slide {
+        &.tranding-slide {
+          position: relative;
+          flex-shrink: 0;
+          width: 100%; // 3개의 슬라이드가 보이도록 설정
+
+          .tranding-slide-img {
+            img {
+              display: block;
+              width: 100%;
+              height: auto;
+            }
+          }
+
+          .tranding-slide-content {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            z-index: 10;
+            padding: 10px;
+            color: #000;
+
+            .shoes-price {
+              font-size: 1.5rem;
+              font-weight: bold;
+            }
+
+            .tranding-slide-content-bottom {
+              .shoes-name {
+                font-size: 1.2rem;
+              }
+            }
+          }
+        }
+      }
+
+      .tranding-slider-control {
+        position: absolute;
+        top: 50%;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        transform: translateY(-50%);
+
+        .slider-arrow {
+          padding: 10px;
+          color: #fff;
+          cursor: pointer;
+          background-color: rgb(0 0 0 / 50%);
+          border-radius: 50%;
+
+          ion-icon {
+            font-size: 1.5rem;
+          }
+        }
+      }
+
+      .swiper-pagination {
+        position: absolute;
+        bottom: 10px;
+        z-index: 10;
+        width: 100%;
+        text-align: center;
+
+        .swiper-pagination-bullet {
+          background: #fff;
+          opacity: 0.7;
+
+          &-active {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+.containersl::-webkit-scrollbar {
+  width: 0;
+}
+
+// 푸터임
+.footer {
+  justify-content: center;
+  max-width: 1948px;
+  padding-inline: 1.25rem;
+  margin-inline: 100px;
+  margin-top: 96px;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 254px);
+    gap: 3rem;
+    column-gap: 3rem;
+    max-width: 1160px;
+    margin-inline: auto;
+    margin-top: 5rem;
+
+    &--text {
+      max-width: 254px;
+      text-align: justify;
+
+      &--14px {
+        margin-bottom: 8px;
+        font-size: 0.875rem;
+        font-weight: 900;
+      }
+
+      &--16px {
+        margin-bottom: 7px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  &__item {
+    display: grid;
+    gap: 12px 0.75rem;
+    justify-content: space-between;
+    max-width: 72.5rem;
+    margin-block: 50px 30px;
+    margin-inline: auto;
+
+    &--sns {
+      display: flex;
+      justify-content: space-between;
+      max-width: auto;
+
+      &--logo {
+        display: block;
+        max-width: 100%;
+
+        > a > img {
+          width: 32px;
+          height: 32px;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+}
+
+// 진짜 마지막
+
+.last {
+  padding-block: 40px 80px;
+  color: oklch(70% 0 0deg);
+  background-color: #000;
+
+  &__text {
+    text-align: center;
+  }
+}

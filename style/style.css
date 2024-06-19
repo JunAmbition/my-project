@@ -15,10 +15,6 @@ body {
   scroll-behavior: smooth;
 }
 
-.sectionnav {
-  height: 9vh;
-}
-
 nav {
   position: fixed;
   top: 0;
@@ -129,12 +125,11 @@ nav {
   display: block;
 }
 
-.darklight-searchbox {
+.navside-searchbox {
   display: flex;
   align-items: center;
 }
-.darklight-searchbox .dark-light,
-.darklight-searchbox .searchtoggle {
+.navside-searchbox .searchtoggle {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -142,29 +137,29 @@ nav {
   height: 40px;
   margin: 0 5px;
 }
-.darklight-searchbox .searchtoggle i {
+.navside-searchbox .searchtoggle i {
   position: absolute;
   font-size: 22px;
   color: var(--text-color);
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.darklight-searchbox .searchtoggle i.cancel {
+.navside-searchbox .searchtoggle i.cancel {
   pointer-events: none;
   opacity: 0;
 }
-.darklight-searchbox .searchtoggle i.active.cancel {
+.navside-searchbox .searchtoggle i.active.cancel {
   pointer-events: auto;
   opacity: 1;
 }
-.darklight-searchbox .searchtoggle i.active.search {
+.navside-searchbox .searchtoggle i.active.search {
   pointer-events: none;
   opacity: 0;
 }
-.darklight-searchbox .searchbox {
+.navside-searchbox .searchbox {
   position: relative;
 }
-.darklight-searchbox .searchbox .search-field {
+.navside-searchbox .searchbox .search-field {
   position: absolute;
   right: 5px;
   bottom: -85px;
@@ -180,18 +175,20 @@ nav {
   opacity: 0;
   transition: all 0.3s ease;
 }
-.darklight-searchbox .searchbox .search-field::before {
+.navside-searchbox .searchbox .search-field::before {
   position: absolute;
-  top: -4px;
-  right: 14px;
-  z-index: -1;
-  width: 12px;
-  height: 12px;
+  bottom: 0;
+  left: 50%;
+  width: 6px;
+  height: 6px;
   content: "";
-  background-color: var(--nav-color);
-  transform: rotate(-45deg);
+  background-color: var(--text-color);
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
 }
-.darklight-searchbox .searchbox .search-field input {
+.navside-searchbox .searchbox .search-field input {
   width: 100%;
   height: 100%;
   padding: 0 45px 0 15px;
@@ -203,14 +200,14 @@ nav {
   border-radius: 4px;
   outline: none;
 }
-.darklight-searchbox .searchbox .search-field i {
+.navside-searchbox .searchbox .search-field i {
   position: absolute;
   right: 15px;
   font-size: 22px;
   color: var(--nav-color);
   cursor: pointer;
 }
-.darklight-searchbox .searchbox .searchtoggle.active ~ .search-field {
+.navside-searchbox .searchbox .searchtoggle.active ~ .search-field {
   bottom: -74px;
   pointer-events: auto;
   opacity: 1;
@@ -261,6 +258,11 @@ nav {
   nav.active .nav-bar .navlogo a {
     opacity: 0;
     transition: all 0.3s ease;
+  }
+  .logo-toggle .siderbarclose {
+    font-size: 24px;
+    color: var(--text-color);
+    cursor: pointer;
   }
   .searchtoggle,
   .search-field i {
@@ -355,4 +357,145 @@ nav {
     padding: 0.3rem 0.7rem;
     font-size: 0.8rem;
   }
+}
+
+.text-center {
+  margin-inline: 8.75rem;
+}
+
+.containersl {
+  width: 90%;
+  margin: 0 auto;
+}
+.containersl .swiper.tranding-slider {
+  position: relative;
+  width: 100%;
+}
+.containersl .swiper.tranding-slider .swiper-wrapper {
+  display: flex;
+}
+.containersl .swiper.tranding-slider .swiper-slide.tranding-slide {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+}
+.containersl .swiper.tranding-slider .swiper-slide.tranding-slide .tranding-slide-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.containersl .swiper.tranding-slider .swiper-slide.tranding-slide .tranding-slide-content {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 10;
+  padding: 10px;
+  color: #000;
+}
+.containersl .swiper.tranding-slider .swiper-slide.tranding-slide .tranding-slide-content .shoes-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.containersl .swiper.tranding-slider .swiper-slide.tranding-slide .tranding-slide-content .tranding-slide-content-bottom .shoes-name {
+  font-size: 1.2rem;
+}
+.containersl .swiper.tranding-slider .tranding-slider-control {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  transform: translateY(-50%);
+}
+.containersl .swiper.tranding-slider .tranding-slider-control .slider-arrow {
+  padding: 10px;
+  color: #fff;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+}
+.containersl .swiper.tranding-slider .tranding-slider-control .slider-arrow ion-icon {
+  font-size: 1.5rem;
+}
+.containersl .swiper.tranding-slider .swiper-pagination {
+  position: absolute;
+  bottom: 10px;
+  z-index: 10;
+  width: 100%;
+  text-align: center;
+}
+.containersl .swiper.tranding-slider .swiper-pagination .swiper-pagination-bullet {
+  background: #fff;
+  opacity: 0.7;
+}
+.containersl .swiper.tranding-slider .swiper-pagination .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+.containersl::-webkit-scrollbar {
+  width: 0;
+}
+
+.footer {
+  justify-content: center;
+  max-width: 1948px;
+  padding-inline: 1.25rem;
+  margin-inline: 100px;
+  margin-top: 96px;
+}
+.footer__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 254px);
+  gap: 3rem;
+  -moz-column-gap: 3rem;
+       column-gap: 3rem;
+  max-width: 1160px;
+  margin-inline: auto;
+  margin-top: 5rem;
+}
+.footer__grid--text {
+  max-width: 254px;
+  text-align: justify;
+}
+.footer__grid--text--14px {
+  margin-bottom: 8px;
+  font-size: 0.875rem;
+  font-weight: 900;
+}
+.footer__grid--text--16px {
+  margin-bottom: 7px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.footer__item {
+  display: grid;
+  gap: 12px 0.75rem;
+  justify-content: space-between;
+  max-width: 72.5rem;
+  margin-block: 50px 30px;
+  margin-inline: auto;
+}
+.footer__item--sns {
+  display: flex;
+  justify-content: space-between;
+  max-width: auto;
+}
+.footer__item--sns--logo {
+  display: block;
+  max-width: 100%;
+}
+.footer__item--sns--logo > a > img {
+  width: 32px;
+  height: 32px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.last {
+  padding-block: 40px 80px;
+  color: oklch(70% 0 0deg);
+  background-color: #000;
+}
+.last__text {
+  text-align: center;
 }
