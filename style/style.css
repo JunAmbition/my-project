@@ -10,9 +10,12 @@
 }
 
 body {
-  font-family: Poppins, sans-serif;
   transition: all 0.4s ease;
   scroll-behavior: smooth;
+}
+
+.sectionnav {
+  font-family: Poppins, sans-serif;
 }
 
 nav {
@@ -23,10 +26,6 @@ nav {
   width: 100%;
   height: 70px;
   background-color: #fff;
-}
-
-.navcontainer.dark nav {
-  border: 1px solid #393838;
 }
 
 .nav-bar {
@@ -105,7 +104,7 @@ nav {
   z-index: 99;
   display: none;
   overflow: hidden;
-  background-color: #393838;
+  background-color: oklab(50% 0 0);
   border-radius: 4px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
@@ -436,6 +435,84 @@ nav {
   width: 0;
 }
 
+#video1 {
+  position: relative;
+  width: 100%;
+  max-width: auto;
+  height: 100%;
+  padding-inline: 5rem;
+  background-color: #000;
+}
+
+.sectionvidio {
+  position: relative;
+  width: auto;
+  padding-bottom: 40px;
+  margin: 0 auto;
+}
+.sectionvidio .contentvideo {
+  position: relative;
+}
+.sectionvidio .contentvideo h2,
+.sectionvidio .contentvideo h3 {
+  position: absolute;
+  z-index: 1;
+  color: white;
+}
+.sectionvidio .contentvideo .videobtn {
+  position: absolute;
+  top: 600px;
+  left: 160px;
+  z-index: 1;
+  display: inline-block;
+  padding: 10px 20px;
+  padding: 0.5rem 1rem;
+  color: #000;
+  text-decoration: none;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+  background: #fff;
+  background-color: #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+.sectionvidio .contentvideo h2 {
+  top: 555px;
+  left: 160px;
+}
+.sectionvidio .contentvideo h3 {
+  top: 490px;
+  left: 160px;
+}
+.sectionvidio .contentvideo iframe {
+  position: relative;
+  z-index: 0;
+  display: block;
+}
+.sectionvidio .contentvideo:hover {
+  background-color: #444;
+}
+
+.section__history {
+  display: flex;
+  justify-content: space-around;
+  padding-block: 30px;
+  padding-inline: 120px;
+  background-color: antiquewhite;
+}
+.section__history .grid-item {
+  flex: 1;
+  max-width: 100%;
+  padding: 20px;
+}
+.section__history .grid-item:last-child {
+  margin-left: 20px;
+}
+.section__history .grid-item h1 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
 .footer {
   justify-content: center;
   max-width: 1948px;
@@ -450,7 +527,7 @@ nav {
   -moz-column-gap: 3rem;
        column-gap: 3rem;
   max-width: 1160px;
-  margin-inline: auto;
+  margin-inline: 160px;
   margin-top: 5rem;
 }
 .footer__grid--text {
@@ -460,7 +537,7 @@ nav {
 .footer__grid--text--14px {
   margin-bottom: 8px;
   font-size: 0.875rem;
-  font-weight: 900;
+  font-weight: bold;
 }
 .footer__grid--text--16px {
   margin-bottom: 7px;
