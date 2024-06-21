@@ -466,6 +466,7 @@ nav {
   display: inline-block;
   padding: 10px 20px;
   padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem;
   color: #000;
   text-decoration: none;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
@@ -473,6 +474,9 @@ nav {
   background-color: #fff;
   border-radius: 5px;
   transition: background-color 0.3s;
+}
+.sectionvidio .contentvideo .videobtn:hover {
+  background-color: #444;
 }
 .sectionvidio .contentvideo h2 {
   top: 555px;
